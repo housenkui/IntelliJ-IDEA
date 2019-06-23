@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .child{
+            margin: 0 auto;
+            background-color: blue;
+
+            /*
+            设置对象上下间距为0，左右自动。
+可拆分： margin:0 auto 0 auto（上下）
+还可拆分为：margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;
+            */
+            display: table;
+            /*display: inline-block;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="child">水平居中</div>
+</body>
+</html>
