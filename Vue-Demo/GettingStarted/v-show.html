@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="styles/demo.css">
+</head>
+<body>
+<div id="app">
+    <h1>Hello,Vue.js!</h1>
+    <h1 v-show="yes">Yes!</h1>
+    <h1 v-show="no">No!</h1>
+    <h1 v-show="age >= 25">Age:{{age}}</h1>
+    <h1 v-show="name.indexOf('jack') >= 0">Name:{{name}}</h1>
+    <p>{{message}}</p>
+    <input type="text" v-model="message"/>
+    <ul class="pagination">
+        <li v-for="n in pageCount">
+            <a href="javascript:void(0)" v-bind:class="activeNumber===n+1?'active':''">{{n+1}}</a>
+        </li>
+    </ul>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    //这是我们的model
+    let exampleData = {
+        message: 'hello world!',
+        yes: true,
+        no: false,
+        age: 28,
+        name: 'jackkeepfool',
+        activeNumber: 2,
+        pageCount: 10,
+    };
+
+    //创建一个Vue实例或ViewModel
+    //它连接View与Model
+    let app = new Vue({
+        el: '#app',
+        data: exampleData
+    })
+
+</script>
+</html>

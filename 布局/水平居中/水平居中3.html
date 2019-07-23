@@ -9,18 +9,30 @@
             padding: 0;
         }
 
-        .parent {
-            position: relative;
-        }
+        /*.parent {*/
+        /*    position: relative;*/
+        /*}*/
 
-        .child {
+        /*.child {*/
+        /*    position: absolute;*/
+        /*    !*不定宽*!*/
+        /*    left: 50%;*/
+        /*    transform: translateX(-50%);*/
+        /*    !*定宽*!*/
+        /*    !*width: 100px;*!*/
+        /*    !*margin-left: -50px;*!*/
+        /*}*/
+        .parent{
+            position: relative;
+            /*height: 100px;*/
+            background-color: #00A555;
+        }
+        .child{
             position: absolute;
-            /*不定宽*/
             left: 50%;
             transform: translateX(-50%);
-            /*定宽*/
-            /*width: 100px;*/
-            /*margin-left: -50px;*/
+            background-color: red;
+
         }
     </style>
 </head>

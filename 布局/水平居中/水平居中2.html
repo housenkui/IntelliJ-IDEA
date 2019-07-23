@@ -8,7 +8,18 @@
             margin: 0;
             padding: 0;
         }
-
+        .parent{
+            display: table;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+        }
+        .son{
+            display: table-cell;
+            height: 200px;
+            background-color: yellow;
+            vertical-align: middle;
+        }
         .child{
             margin: 0 auto;
             background-color: blue;
@@ -19,11 +30,16 @@
 还可拆分为：margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;
             */
             display: table;
-            /*display: inline-block;*/
         }
     </style>
 </head>
 <body>
     <div class="child">水平居中</div>
+<div class="parent">
+    <div class="son">会议认为，党的十八大以来，我国经济发展取得历史性成就、
+        发生历史性变革，为其他领域改革发展提供了重要物质条件。经济实力
+        再上新台阶，经济年均增长7.1%，成为世界经济增长的主要动力源和稳定器。
+    </div>
+</div>
 </body>
 </html>
