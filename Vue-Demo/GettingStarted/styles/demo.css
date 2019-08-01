@@ -1,0 +1,13 @@
+.pagination .active{
+     color: #fff;
+     background-color: #009a61;
+     border-left: none;
+     border-right: none;
+ }
+
+.pagination .active:hover{
+    color: #fff;
+    background-color: #009a61;
+    border-left: none;
+    border-right: none;
+}

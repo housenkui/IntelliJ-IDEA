@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*.parent {*/
+        /*    position: relative;*/
+        /*}*/
+
+        /*.child {*/
+        /*    position: absolute;*/
+        /*    !*不定宽*!*/
+        /*    left: 50%;*/
+        /*    transform: translateX(-50%);*/
+        /*    !*定宽*!*/
+        /*    !*width: 100px;*!*/
+        /*    !*margin-left: -50px;*!*/
+        /*}*/
+        .parent{
+            position: relative;
+            /*height: 100px;*/
+            background-color: #00A555;
+        }
+        .child{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: red;
+
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="child">水平居中</div>
+</div>
+</body>
+</html>

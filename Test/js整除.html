@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    {
+        let total_count =  392;
+        let y = 10;
+        let x = total_count/10;
+        console.log(x, Math.ceil(x));
+        console.log(x, Math.ceil(0.1));
+    }
+
+    {
+        let a = 100;
+        let b = a;
+        a = 200;
+        console.log("b =",b);
+    }
+    {
+        let a = {age:20}
+        let b = a;
+        b.age = 21;
+        console.log(a.age);
+    }
+
+    {
+        console.log("------",typeof null);
+        console.log("------", null);
+    }
+
+    {
+        (function (){console.log("01");})();
+
+        (function () { /* code */  console.log("1");} ());
+
+        !function () { /* code */ console.log("2"); } ();
+
+        ~function () { /* code */console.log("3"); } ();
+
+        -function () { /* code */ console.log("4");} ();
+
+        +function () { /* code */ console.log("5");} ();
+    }
+
+    {
+
+        var Utils = {};
+        !function(){
+            if(Utils.Listener){
+                return;
+            }
+            var _channels = {},
+                slice = Array.prototype.slice;
+
+            Utils.Listener = {
+                //channelName 频道名，天然支持“伪”命名空间。例如：uname.change
+                createChannel: function(channelName){
+                    if( _channels[channelName] ){
+                        console.log('Channel "'+channelName+'" has been defined!');
+                    }else{
+                        _channels[channelName] = {};
+                    }
+                },
+                //channelName 监听频道
+                //listenerName 监听者
+                //handler 发生广播时的执行函数
+                add: function(channelName, listenerName, handler){
+                    var channel = _channels[channelName];
+                    if( !channel ){
+                        console.log('Channel "'+channelName+'" has NOT been defined!');
+                        return;
+                    }
+                    if( channel[listenerName] ){
+                        console.log(channelName+':'+listenerName+'" has been defined!');
+                        return;
+                    }
+                    channel[listenerName] = handler;
+                },
+                broadcast: function(channelName/*, data...*/){
+                    var channel = _channels[channelName];
+                    if( channel ){
+                        for(var p in channel){
+                            if( channel[p] ){
+                                 let temp  =  slice.call(arguments,1);
+                                 let temp1 =  channel[p];
+                                 temp1.apply(null, temp);
+                            }
+                        }
+                    }
+                },
+                unicast: function(channelName, listenerName/*, data...*/){
+                    var channel = _channels[channelName];
+                    if( channel && channel[listenerName]){
+                        channel[listenerName].apply(null, slice.call(arguments,2));
+                    }
+                },
+                //channelName 频道名
+                //listenerName 可选，如果没有，将删除整个频道
+                remove: function(channelName, listenerName){
+                    var channel = _channels[channelName];
+                    if( channel ){
+                        if(listenerName){
+                            channel[listenerName] = null;
+                            delete channel[listenerName];
+                        }else{
+                            channel = null;
+                            delete _channels[channelName];
+                        }
+                    }
+                }
+            };
+        }();
+
+        //创建频道“unameChange”
+        Utils.Listener.createChannel('unameChange');
+        //创建频道“uname.change”---天然支持“伪”命名空间！！！
+        Utils.Listener.createChannel('uname.Change');
+        //添加unameChange的监听者“updateTray”
+        Utils.Listener.add('unameChange', 'updateTray', function(){
+            //TODO
+            console.log("arguments",arguments);
+
+        });
+        //添加unameChange的监听者“changeFootbar”
+        Utils.Listener.add('unameChange', 'changeFootbar', function(){
+            //TODO
+            console.log("arguments",arguments);
+        });
+
+        //添加unameChange的监听者“changeFootbar”
+        Utils.Listener.add('uname.Change', 'changeFootbar', function(){
+            //TODO
+            console.log("arguments",arguments);
+
+        });
+
+        //添加unameChange的监听者“changeFootbar”
+        Utils.Listener.add('uname.Change', 'changeFootbar1', function(){
+            //TODO
+            console.log("arguments",arguments);
+
+        });
+        //发出广播
+        Utils.Listener.broadcast('unameChange', 'someData');
+        //发出广播
+        Utils.Listener.broadcast('uname.Change', 'someData');
+        //发出单播
+        Utils.Listener.unicast('uname.Change', 'changeFootbar', 'someData');
+
+    }
+
+</script>
+</body>
+</html>

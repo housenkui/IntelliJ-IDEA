@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#AsideMenu {
+    padding: 0;
+    width: 100px;
+    margin-top: 100px
+}
+
+#AsideMenu > li {
+    background-color: #CB8589;
+    text-align: center;
+    color: white;
+}
+#AsideMenu  li > a{
+    font-size: 16px;
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+#AsideMenu li >a:hover{
+    animation: a_hover 0.8s;
+    text-shadow: 0 0 8px white;
+}
+#AsideMenu .menuItem {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+#AsideMenu .menuItem >li{
+    display: block;
+    background-color: #796465;
+}
